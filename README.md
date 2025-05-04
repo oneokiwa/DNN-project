@@ -1,8 +1,40 @@
 # GPT2 Dataset - EDA
+## 1. 디렉토리 구조 및 데이터 종류
 
-**EDA에 사용한 데이터**:
-webtext.test.jsonl, gpt2_k40.test.jsonl
+### 주요 데이터 파일 형식
 
+- 모두 `.jsonl` (JSON Lines) 형식
+
+![Image](https://github.com/user-attachments/assets/d65bb3ed-069a-4042-8413-4e3994a045a2)
+
+- **각 파일에는 수천~수십만 개의 텍스트 샘플** 포함
+- **텍스트 길이와 스타일은 웹 기반 콘텐츠(webtext) 기준**
+
+| 분류 | 설명 | 예시 파일명 |
+| --- | --- | --- |
+| **Human Text** | 사람이 작성한 텍스트 | webtext.train.jsonl, webtext.valid.jsonl, webtext.test.jsonl |
+| **GPT-2 Generated Text** | 다양한 크기의 GPT-2 모델이 생성한 텍스트 | small-117M.train.jsonl, medium-345M.test.jsonl , xl-1542M-k40.valid.jsonl 등  |
+
+## 2. GPT-2 모델별 세부 구성
+
+| 모델 이름 (source) | 파라미터 수 | 생성 방식 | 파일명 예시 |
+| --- | --- | --- | --- |
+| small-117M-k40 | 117M | top-k 40 | small-117M.train.jsonl |
+| medium-345M-k40 | 345M | top-k 40 | medium-345M.test.jsonl |
+| large-762M-k40 | 762M | top-k 40 | large-762M.valid.jsonl |
+| xl-1542M-k40 | 1.5B | top-k 40 | xl-1542M-k40.test.jsonl |
+
+## 3. 데이터 분할 기준 (split)
+
+모든 모델 및 webtext에는 다음의 분할이 존재
+
+| 분할 | 용도 | 예시 파일 |
+| --- | --- | --- |
+| `train` | 학습 데이터 | `small-117M.train.jsonl` |
+| `valid` | 검증 데이터 | `webtext.valid.jsonl` |
+| `test` | 테스트 데이터 | `xl-1542M-k40.test.jsonl` |
+
+## 4. EDA용 데이터 병합
 - GPT-2 모델 전체를 하나로 묶어서,
 - label = 1로 지정하고,
 - EDA는 전체 GPT-2 묶음 vs Human만 수행.
@@ -35,6 +67,8 @@ webtext.test.jsonl, gpt2_k40.test.jsonl
 │   ├── gpt2_k40.test.jsonl             # GPT-2 텍스트 (Test)
 ```
 ---
+**EDA에 사용한 데이터**:
+webtext.test.jsonl, gpt2_k40.test.jsonl
 
 ## 1. 문장 길이 분포 히스토그램
 
