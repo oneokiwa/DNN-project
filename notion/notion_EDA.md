@@ -1,13 +1,7 @@
 # EDA
 
-**목차**
-
----
-
 **EDA에 사용한 데이터**:
-webtext.test.jsonl
-
-gpt2_k40.test.jsonl
+webtext.test.jsonl, gpt2_k40.test.jsonl
 
 ---
 
@@ -18,16 +12,11 @@ gpt2_k40.test.jsonl
 
 | 구간 | 해석 |
 | --- | --- |
-| 0~100 | Human: 짧은 문장 비율이 더 높음 
-→ 단문 중심 구조 존재 |
-| 800~900 | GPT2: 정형화된 길이로 문장을 생성하는 경향
-→ 샘플링 파라미터 (`max_length`) 영향 가능성 |
-| ~1000 | GPT2: 거의 1000단어에 근접한 문장을 자주 생성 
-→ 샘플링 파라미터 (`max_length`) 영향 가능성
+| 0~100 | Human: 짧은 문장 비율이 더 높음 → 단문 중심 구조 존재
+| 800~900 | GPT2: 정형화된 길이로 문장을 생성하는 경향 → 샘플링 파라미터 (`max_length`) 영향 가능성
+| ~1000 | GPT2: 거의 1000단어에 근접한 문장을 자주 생성→ 샘플링 파라미터 (`max_length`) 영향 가능성 
 
- |
-
-![image.png](image.png)
+![Image](https://github.com/user-attachments/assets/5bca2e9e-abde-4e0e-b68f-75e2968af7c8)
 
 ---
 
@@ -41,56 +30,72 @@ gpt2_k40.test.jsonl
 | `also` | 불필요한 접속부사 반복 경향 |
 | `would`, `could` | 조건/가정문 과다 사용 |
 | `get`, `make`, `want`, `think`, `see` | 서술/의지/행동 중심 표현 반복 |
-| `new`, `one`, `people` | 모호하거나 일반화된 명사 
-→ 서사 반복 구조 가능성 |
+| `new`, `one`, `people` | 모호하거나 일반화된 명사 → 서사 반복 구조 가능성
 
-![image.png](image%201.png)
+![Image](https://github.com/user-attachments/assets/b216bf3c-e781-4669-8749-616483119689)
 
-| 단어 | Human 빈도 |
-| --- | --- |
-| one | 4994 |
-| new | 4028 |
-| said | 4028 |
+### 단어 빈도 비교 (Top 20 Words)
+
+<table>
+<tr>
+<td>
+
+####  Human 상위 20개 단어
+
+| 단어 | 빈도 |
+|------|------|
+| one   | 4994 |
+| new   | 4028 |
+| said  | 4028 |
 | would | 3985 |
-| also | 3766 |
-| like | 3364 |
-| people | 2928 |
+| also  | 3766 |
+| like  | 3364 |
+| people| 2928 |
 | first | 2701 |
-| two | 2604 |
-| get | 2579 |
-| even | 2332 |
-| time | 2315 |
+| two   | 2604 |
+| get   | 2579 |
+| even  | 2332 |
+| time  | 2315 |
 | could | 2307 |
-| may | 2185 |
-| many | 2078 |
-| last | 2043 |
-| make | 1983 |
-| use | 1819 |
-| see | 1720 |
-| us | 1685 |
+| may   | 2185 |
+| many  | 2078 |
+| last  | 2043 |
+| make  | 1983 |
+| use   | 1819 |
+| see   | 1720 |
+| us    | 1685 |
 
-| 단어 | GPT-2 빈도 |
-| --- | --- |
-| new | 7047 |
-| would | 6723 |
-| one | 6634 |
-| also | 6295 |
-| said | 6126 |
+</td>
+<td>
+
+#### GPT-2 상위 20개 단어
+
+| 단어 | 빈도 |
+|------|------|
+| new    | 7047 |
+| would  | 6723 |
+| one    | 6634 |
+| also   | 6295 |
+| said   | 6126 |
 | people | 6114 |
-| get | 4731 |
-| like | 4422 |
-| first | 4368 |
-| make | 4209 |
-| going | 3682 |
-| could | 3551 |
-| time | 3409 |
-| want | 3174 |
-| two | 3144 |
-| many | 2982 |
-| even | 2845 |
-| think | 2820 |
-| see | 2818 |
-| use | 2733 |
+| get    | 4731 |
+| like   | 4422 |
+| first  | 4368 |
+| make   | 4209 |
+| going  | 3682 |
+| could  | 3551 |
+| time   | 3409 |
+| want   | 3174 |
+| two    | 3144 |
+| many   | 2982 |
+| even   | 2845 |
+| think  | 2820 |
+| see    | 2818 |
+| use    | 2733 |
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -100,11 +105,11 @@ gpt2_k40.test.jsonl
 
 ### 1) Human Text Word Cloud
 
-![image.png](image%202.png)
+![Image](https://github.com/user-attachments/assets/eb7d659e-a54d-4e69-9e4a-8cbb6a61b143)
 
 ### 2) GPT-2 Text Word Cloud
 
-![image.png](image%203.png)
+![Image](https://github.com/user-attachments/assets/7cacbb75-d045-4180-a187-f27f254d7b16)
 
 ---
 
@@ -120,9 +125,9 @@ gpt2_k40.test.jsonl
 | num_digits (숫자 수) | **28.50** | 20.17 | Human이 숫자가 포함된 문장(날짜, 수치)을 더 자주 다룸 |
 | num_punct (문장부호 수) | 47.88 | **50.83** | 자연스러운 문장 흐름 유지 시도로 해석 가능 |
 
-![image.png](image%204.png)
+![Image](https://github.com/user-attachments/assets/26b79a60-7bb6-43ad-bccb-3891278af503)
 
-**Human                                                                                       GPT2_k40**
+**Human**
 
 | 항목 | length | num_caps | num_digits | num_punct |
 | --- | --- | --- | --- | --- |
@@ -134,6 +139,8 @@ gpt2_k40.test.jsonl
 | 50% | 2426.5 | 79 | 14 | 42 |
 | 75% | 4268.25 | 127.25 | 32 | 75 |
 | max | 5764 | 2132 | 979 | 680 |
+
+**GPT2_k40**
 
 | 항목 | length | num_caps | num_digits | num_punct |
 | --- | --- | --- | --- | --- |
@@ -157,11 +164,9 @@ gpt2_k40.test.jsonl
 - **EDA 분석**
 1. Human, GPT2 모두 `'of the'`, `'in the'`, `'to the'` 등 전치사 + 관사 조합을 많이 사용.
 2. GPT-2에서 `'going to'`, `'you can'`, `'this is'` 등이 추가로 상위권에 위치.
-    
     → 구어체적 표현이 두드러짐
     
 3. GPT-2의 2-gram 빈도수가 전반적으로 Human보다 높음. 
-    
     → 더 반복적이고 특정한 문장 구조에 편중
     
 - **결과 해석**
@@ -171,55 +176,70 @@ gpt2_k40.test.jsonl
 1. 상대적으로 고정된 패턴을 자주 사용하여 일관성은 있지만 다양성이 부족함. (패턴 기반 생성 특성)
 2. 미래 표현을 많이 사용 ("will be", "you can", "going to")
 
-![image.png](image%205.png)
+![Image](https://github.com/user-attachments/assets/01c50a3d-0957-48a8-beab-9fb70a94898c)
 
-**Human                                                                 GPT2_k40**
+### 2-gram 빈도 비교 (Top 20 Pairs)
+
+<table>
+<tr>
+<td>
+
+####  Human 상위 2-gram
 
 | 2-gram | Human 빈도 |
-| --- | --- |
-| of the | 12688 |
-| in the | 10088 |
-| to the | 5694 |
-| on the | 4729 |
-| for the | 3619 |
-| and the | 3231 |
-| to be | 3157 |
-| at the | 2950 |
-| with the | 2763 |
-| from the | 2410 |
-| that the | 2395 |
-| by the | 1881 |
-| it is | 1870 |
-| if you | 1586 |
-| is the | 1586 |
-| one of | 1577 |
-| will be | 1540 |
-| this is | 1512 |
-| it was | 1507 |
-| the first | 1369 |
+|--------|-------------|
+| of the     | 12688 |
+| in the     | 10088 |
+| to the     | 5694  |
+| on the     | 4729  |
+| for the    | 3619  |
+| and the    | 3231  |
+| to be      | 3157  |
+| at the     | 2950  |
+| with the   | 2763  |
+| from the   | 2410  |
+| that the   | 2395  |
+| by the     | 1881  |
+| it is      | 1870  |
+| if you     | 1586  |
+| is the     | 1586  |
+| one of     | 1577  |
+| will be    | 1540  |
+| this is    | 1512  |
+| it was     | 1507  |
+| the first  | 1369  |
+
+</td>
+<td>
+
+####  GPT-2 상위 2-gram
 
 | 2-gram | GPT-2 빈도 |
-| --- | --- |
-| of the | 16388 |
-| in the | 14291 |
-| to the | 6927 |
-| on the | 5731 |
-| to be | 5453 |
-| for the | 4974 |
-| and the | 4762 |
-| that the | 4383 |
-| with the | 3891 |
-| at the | 3601 |
-| if you | 3123 |
-| it is | 3093 |
-| from the | 2968 |
-| the first | 2884 |
-| going to | 2871 |
-| this is | 2495 |
-| you can | 2457 |
-| will be | 2430 |
-| by the | 2419 |
-| it was | 2410 |
+|--------|-------------|
+| of the     | 16388 |
+| in the     | 14291 |
+| to the     | 6927  |
+| on the     | 5731  |
+| to be      | 5453  |
+| for the    | 4974  |
+| and the    | 4762  |
+| that the   | 4383  |
+| with the   | 3891  |
+| at the     | 3601  |
+| if you     | 3123  |
+| it is      | 3093  |
+| from the   | 2968  |
+| the first  | 2884  |
+| going to   | 2871  |
+| this is    | 2495  |
+| you can    | 2457  |
+| will be    | 2430  |
+| by the     | 2419  |
+| it was     | 2410  |
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -244,45 +264,60 @@ gpt2_k40.test.jsonl
     → 정보 전달 및 설명 중심 경향
     
 
-![image.png](image%206.png)
+![Image](https://github.com/user-attachments/assets/cd590346-beb9-476a-9cee-ea589bf44548)
 
-**Human                                                         GPT2_k40**
+### TF-IDF 상위 단어 비교
+
+<table>
+<tr>
+<td>
+
+####  Human TF-IDF 상위 단어
 
 | 단어 | Human TF-IDF |
-| --- | --- |
-| the | 0.2243 |
-| to | 0.1125 |
-| and | 0.1025 |
-| of | 0.1017 |
-| in | 0.078 |
-| that | 0.0508 |
-| is | 0.0486 |
-| for | 0.0451 |
-| it | 0.0414 |
-| on | 0.0388 |
-| you | 0.038 |
-| with | 0.0349 |
-| he | 0.033 |
-| as | 0.0307 |
-| was | 0.0307 |
+|------|---------------|
+| the   | 0.2243 |
+| to    | 0.1125 |
+| and   | 0.1025 |
+| of    | 0.1017 |
+| in    | 0.0780 |
+| that  | 0.0508 |
+| is    | 0.0486 |
+| for   | 0.0451 |
+| it    | 0.0414 |
+| on    | 0.0388 |
+| you   | 0.0380 |
+| with  | 0.0349 |
+| he    | 0.0330 |
+| as    | 0.0307 |
+| was   | 0.0307 |
+
+</td>
+<td>
+
+####  GPT-2 TF-IDF 상위 단어
 
 | 단어 | GPT-2 TF-IDF |
-| --- | --- |
-| the | 0.2516 |
-| to | 0.1338 |
-| of | 0.1076 |
-| and | 0.098 |
-| in | 0.0853 |
-| that | 0.0727 |
-| it | 0.0551 |
-| is | 0.0533 |
-| you | 0.0532 |
-| for | 0.0458 |
-| was | 0.0407 |
-| we | 0.0404 |
-| on | 0.039 |
-| he | 0.0363 |
-| this | 0.0356 |
+|------|----------------|
+| the   | 0.2516 |
+| to    | 0.1338 |
+| of    | 0.1076 |
+| and   | 0.0980 |
+| in    | 0.0853 |
+| that  | 0.0727 |
+| it    | 0.0551 |
+| is    | 0.0533 |
+| you   | 0.0532 |
+| for   | 0.0458 |
+| was   | 0.0407 |
+| we    | 0.0404 |
+| on    | 0.0390 |
+| he    | 0.0363 |
+| this  | 0.0356 |
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -328,227 +363,3 @@ gpt2_k40.test.jsonl
 </aside>
 
 ---
-
-# 추가) 전체 코드
-
-- eda_gpt2_k40.py
-    
-    ```python
-    # ========================================
-    ## EDA 파이프라인 요약 ##
-    # JSONL 형식 데이터 로딩 및 전처리
-    # 1. 문장 길이 분포 히스토그램
-    # 2. 자주 등장하는 단어 출력
-    # 3. WordCloud 시각화
-    # 4. 특수문자 통계 요약
-    # 5. n-gram 분석
-    # 6. TF-IDF 시각화
-    # 7. 텍스트 코사인 유사도 분석
-    # ========================================
-    import os
-    import json
-    import re
-    import pandas as pd
-    import matplotlib.pyplot as plt
-    import nltk
-    from collections import Counter
-    from nltk.corpus import stopwords
-    from wordcloud import WordCloud
-    from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-    from sklearn.metrics.pairwise import cosine_similarity
-    import numpy as np
-    
-    # 한글 지원
-    plt.rcParams['font.family'] = ['Malgun Gothic', 'Segoe UI Emoji']
-    plt.rcParams['axes.unicode_minus'] = False
-    nltk.download('stopwords')
-    
-    # 데이터 로딩 함수
-    def load_jsonl(path, limit=None):
-        with open(path, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
-        if limit:
-            lines = lines[:limit]
-        return [json.loads(line)["text"] for line in lines]
-    
-    # 전처리 함수 (불용어 제거 후 토큰화)
-    def tokenize(texts):
-        stop_words = set(stopwords.words('english'))
-        tokens = []
-        for t in texts:
-            tokens += [w.lower() for w in t.split() if w.isalpha() and w.lower() not in stop_words]
-        return tokens
-    
-    # 문장 길이 시각화
-    def plot_label_distribution(human_len, gpt_len):
-        plt.hist(human_len, alpha=0.5, label='Human', bins=50)
-        plt.hist(gpt_len, alpha=0.5, label='GPT-2', bins=50)
-        plt.xlabel("문장 길이 (단어 수)")
-        plt.ylabel("문장 수")
-        plt.legend()
-        plt.title("문장 길이 분포")
-        plt.savefig("output/sentence_length_histogram.png")
-        plt.close()
-    
-    # 단어 상위 출력
-    def print_top_words(tokens, label):
-        counter = Counter(tokens)
-        print(f"[{label}] 상위 20개 단어:")
-        for word, freq in counter.most_common(20):
-            print(f"{word}: {freq}")
-    
-    # 워드클라우드
-    def show_wordcloud(texts, title):
-        wc = WordCloud(width=800, height=400, background_color='white').generate(" ".join(texts))
-        plt.figure(figsize=(15, 7))
-        plt.imshow(wc, interpolation='bilinear')
-        plt.axis('off')
-        plt.title(title)
-        plt.savefig(f"output/{title.replace(' ', '_').lower()}.png")
-        plt.close()
-    
-    # 특수문자 통계
-    def get_special_stats(texts):
-        return pd.DataFrame({
-            'length': [len(t) for t in texts],
-            'num_caps': [sum(1 for c in t if c.isupper()) for t in texts],
-            'num_digits': [sum(1 for c in t if c.isdigit()) for t in texts],
-            'num_punct': [len(re.findall(r'[.,!?;]', t)) for t in texts]
-        })
-    
-    # n-gram 분석
-    def get_top_ngrams(texts, ngram_range=(2,2), top_k=20):
-        vectorizer = CountVectorizer(ngram_range=ngram_range, max_features=5000)
-        X = vectorizer.fit_transform(texts)
-        freqs = zip(vectorizer.get_feature_names_out(), X.sum(axis=0).tolist()[0])
-        return sorted(freqs, key=lambda x: x[1], reverse=True)[:top_k]
-    
-    # TF-IDF 분석
-    def show_tfidf_class_words(h_texts, g_texts, top_k=15):
-        vect = TfidfVectorizer(max_features=5000)
-        X = vect.fit_transform(h_texts + g_texts)
-        features = vect.get_feature_names_out()
-        human_mean = X[:len(h_texts)].mean(axis=0).A1
-        gpt_mean = X[len(h_texts):].mean(axis=0).A1
-        human_top = sorted(zip(features, human_mean), key=lambda x: x[1], reverse=True)[:top_k]
-        gpt_top = sorted(zip(features, gpt_mean), key=lambda x: x[1], reverse=True)[:top_k]
-        print("\n[Human TF-IDF 상위 단어]")
-        for word, score in human_top:
-            print(f"{word}: {score:.4f}")
-        print("\n[GPT-2 TF-IDF 상위 단어]")
-        for word, score in gpt_top:
-            print(f"{word}: {score:.4f}")
-        return human_top, gpt_top
-    
-    # Cosine 유사도 분석
-    def cosine_similarity_stats(texts, label):
-        vect = TfidfVectorizer(max_features=1000)
-        X = vect.fit_transform(texts[:1000])
-        sim_matrix = cosine_similarity(X)
-        triu = sim_matrix[np.triu_indices_from(sim_matrix, k=1)]
-        print(f"[{label}] 평균 Cosine 유사도: {np.mean(triu):.4f}, 표준편차: {np.std(triu):.4f}")
-    
-    # 시각화 함수들
-    def plot_special_stats(df1, df2):
-        metrics = ['length', 'num_caps', 'num_digits', 'num_punct']
-        df1_mean = df1.describe().loc['mean', metrics]
-        df2_mean = df2.describe().loc['mean', metrics]
-        x = range(len(metrics))
-        plt.figure(figsize=(10, 5))
-        plt.bar([i - 0.2 for i in x], df1_mean, width=0.4, label='Human')
-        plt.bar([i + 0.2 for i in x], df2_mean, width=0.4, label='GPT-2')
-        plt.xticks(x, metrics)
-        plt.ylabel("평균 값")
-        plt.title("특수문자/숫자 평균 비교")
-        plt.legend()
-        plt.tight_layout()
-        plt.savefig("output/special_char_stats_comparison.png")
-        plt.close()
-    
-    def plot_ngram_comparison(h_df, g_df):
-        df = pd.merge(h_df, g_df, on="2-gram", how="outer").fillna(0)
-        x = range(len(df))
-        plt.figure(figsize=(14, 6))
-        plt.bar([i - 0.2 for i in x], df["Human 빈도"], width=0.4, label="Human")
-        plt.bar([i + 0.2 for i in x], df["GPT-2 빈도"], width=0.4, label="GPT-2")
-        plt.xticks(x, df["2-gram"], rotation=45)
-        plt.ylabel("빈도")
-        plt.title("2-gram 상위 20개 비교")
-        plt.legend()
-        plt.tight_layout()
-        plt.savefig("output/ngram_comparison.png")
-        plt.close()
-    
-    def plot_tfidf_comparison(h_top, g_top):
-        df = pd.DataFrame(h_top, columns=["단어", "Human TF-IDF"])
-        df_g = pd.DataFrame(g_top, columns=["단어", "GPT-2 TF-IDF"])
-        df = pd.merge(df, df_g, on="단어", how="outer").fillna(0)
-        x = range(len(df))
-        plt.figure(figsize=(14, 6))
-        plt.bar([i - 0.2 for i in x], df["Human TF-IDF"], width=0.4, label="Human")
-        plt.bar([i + 0.2 for i in x], df["GPT-2 TF-IDF"], width=0.4, label="GPT-2")
-        plt.xticks(x, df["단어"], rotation=45)
-        plt.ylabel("TF-IDF 점수")
-        plt.title("TF-IDF 상위 단어 비교")
-        plt.legend()
-        plt.tight_layout()
-        plt.savefig("output/tfidf_comparison.png")
-        plt.close()
-    
-    def plot_cosine_comparison():
-        labels = ['Human', 'GPT-2']
-        means = [0.2662, 0.2968]
-        stds = [0.1292, 0.1203]
-        x = range(len(labels))
-        plt.figure(figsize=(6, 5))
-        plt.bar(x, means, yerr=stds, capsize=10, tick_label=labels)
-        plt.ylabel("평균 Cosine 유사도")
-        plt.title("Cosine Similarity 비교")
-        plt.tight_layout()
-        plt.savefig("output/cosine_similarity_comparison.png")
-        plt.close()
-    
-    # 실행
-    if __name__ == '__main__':
-        os.makedirs("output", exist_ok=True)
-        data_dir_gpt = './data/merged_gpt2_k40'
-        data_dir_human = './data'
-        webtext = load_jsonl(os.path.join(data_dir_human, 'webtext.test.jsonl'))
-        gpt2_k40 = load_jsonl(os.path.join(data_dir_gpt, 'gpt2_k40.test.jsonl'))
-    
-        webtext_lens = [len(text.split()) for text in webtext]
-        gpt2_lens = [len(text.split()) for text in gpt2_k40]
-        plot_label_distribution(webtext_lens, gpt2_lens)
-    
-        human_tokens = tokenize(webtext)
-        gpt2_tokens = tokenize(gpt2_k40)
-        print_top_words(human_tokens, 'Human')
-        print_top_words(gpt2_tokens, 'GPT-2')
-        show_wordcloud(human_tokens, "WordCloud Human Text")
-        show_wordcloud(gpt2_tokens, "WordCloud GPT-2 Text")
-    
-        web_stats = get_special_stats(webtext)
-        gpt2_stats = get_special_stats(gpt2_k40)
-        print("\n[Human 특수문자/숫자 통계 요약]")
-        print(web_stats.describe())
-        print("\n[GPT-2 특수문자/숫자 통계 요약]")
-        print(gpt2_stats.describe())
-        plot_special_stats(web_stats, gpt2_stats)
-    
-        web_ngrams = pd.DataFrame(get_top_ngrams(webtext), columns=["2-gram", "Human 빈도"])
-        gpt2_ngrams = pd.DataFrame(get_top_ngrams(gpt2_k40), columns=["2-gram", "GPT-2 빈도"])
-        print("\n[Human 2-gram 상위 20개]")
-        print(web_ngrams)
-        print("\n[GPT-2 2-gram 상위 20개]")
-        print(gpt2_ngrams)
-        plot_ngram_comparison(web_ngrams, gpt2_ngrams)
-    
-        h_top, g_top = show_tfidf_class_words(webtext, gpt2_k40)
-        plot_tfidf_comparison(h_top, g_top)
-    
-        cosine_similarity_stats(webtext, 'Human')
-        cosine_similarity_stats(gpt2_k40, 'GPT-2')
-        plot_cosine_comparison()
-    
-        print("\n전체 분석 및 시각화 완료: output 폴더 확인")
-    ```
