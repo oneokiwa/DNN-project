@@ -6,7 +6,6 @@
 - 모두 `.jsonl` (JSON Lines) 형식
 
 ![Image](https://github.com/user-attachments/assets/d65bb3ed-069a-4042-8413-4e3994a045a2)
-
 - **각 파일에는 수천~수십만 개의 텍스트 샘플** 포함
 - **텍스트 길이와 스타일은 웹 기반 콘텐츠(webtext) 기준**
 
