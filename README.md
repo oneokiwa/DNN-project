@@ -364,8 +364,7 @@ webtext.test.jsonl, gpt2_k40.test.jsonl
     
     → 유사도는 낮고 표현력이 풍부
     
-
-![image.png](image%207.png)
+![Image](https://github.com/user-attachments/assets/ad256110-3f7c-435b-b715-85462d4cd0ce)
 
 | 측정 항목 | **Human** | **GPT-2** |
 | --- | --- | --- |
@@ -393,7 +392,6 @@ webtext.test.jsonl, gpt2_k40.test.jsonl
 
 </aside>
 
----
 ---
 # original readme
 # gpt-2-output-dataset
